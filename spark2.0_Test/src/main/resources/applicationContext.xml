@@ -73,12 +73,12 @@
         <!--</property>-->
     <!--</bean>-->
 
-    <bean id="helloWorld" class="com.java.HelloWorld">
+    <bean id="helloWorld" class="com.Spring.HelloWorld">
         <property name="message1" value="Hello World--1!"/>
         <property name="message2" value="Hello World--2"/>
     </bean>
 
-    <bean id="helloWorld1" class="com.java.HelloWorld_1" parent="helloWorld">
+    <bean id="helloWorld1" class="com.Spring.HelloWorld_1" parent="helloWorld">
         <property name="message1" value="Hello World---1!"/>
         <property name="message3" value="Hello World--3"/>
     </bean>
@@ -94,7 +94,7 @@
     </bean>
 
     <bean id="studentJDBCTemplate"
-          class="com.java.springJDBC.StudentJDBCTemplate">
+          class="com.Spring.springJDBC.StudentJDBCTemplate">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>
