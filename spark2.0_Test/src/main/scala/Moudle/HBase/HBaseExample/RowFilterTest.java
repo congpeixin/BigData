@@ -1,9 +1,10 @@
-package Moudle.HBase;
+package Moudle.HBase.HBaseExample;
 
 /**
  * Created by cluster on 2017/5/16.
  */
 
+import Moudle.HBase.HBaseConfig;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.KeyValue;

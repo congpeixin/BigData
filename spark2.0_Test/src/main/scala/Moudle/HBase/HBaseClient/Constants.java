@@ -1,4 +1,4 @@
-package Moudle.HBase;
+package Moudle.HBase.HBaseClient;
 
 /**
  * Created by cluster on 2017/4/6.

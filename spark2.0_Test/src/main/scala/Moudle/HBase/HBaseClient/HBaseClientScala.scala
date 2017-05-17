@@ -1,22 +1,19 @@
-package Moudle.HBase
+package Moudle.HBase.HBaseClient
 
 /**
   * Created by cluster on 2017/4/6.
   */
 
 import java.io.IOException
-import java.util.Date
 
+import Moudle.HBase.HBaseConfig
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.hbase._
 import org.apache.hadoop.hbase.client._
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
-
-
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.protobuf.ProtobufUtil
 import org.apache.hadoop.hbase.util.{Base64, Bytes}
-import org.apache.lucene.queryparser.xml.builders.ConstantScoreQueryBuilder
 import org.apache.spark.sql.SparkSession
 
 /**

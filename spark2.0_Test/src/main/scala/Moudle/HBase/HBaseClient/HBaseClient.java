@@ -1,8 +1,9 @@
-package Moudle.HBase;
+package Moudle.HBase.HBaseClient;
 
 /**
  * Created by cluster on 2017/4/6.
  */
+import Moudle.HBase.HBaseConfig;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;

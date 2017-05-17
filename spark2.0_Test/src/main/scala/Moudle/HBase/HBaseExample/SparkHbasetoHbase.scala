@@ -1,14 +1,14 @@
-package Moudle.HBase
+package Moudle.HBase.HBaseExample
 
 import java.io.IOException
 import java.util
 
-import org.apache.hadoop.hbase.{CellUtil, TableName, HBaseConfiguration}
 import org.apache.hadoop.hbase.client._
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.protobuf.ProtobufUtil
 import org.apache.hadoop.hbase.util.{Base64, Bytes}
+import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration, TableName}
 import org.apache.spark.sql.SparkSession
 
 /**

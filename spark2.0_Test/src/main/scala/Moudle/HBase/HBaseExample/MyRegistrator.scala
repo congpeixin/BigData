@@ -1,4 +1,4 @@
-package Moudle.HBase
+package Moudle.HBase.HBaseExample
 
 import com.esotericsoftware.kryo.Kryo
 import org.apache.spark.serializer.KryoRegistrator
