@@ -5,8 +5,12 @@ package Moudle.HBase;
  */
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.KeyValue;
-import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.BinaryComparator;
 import org.apache.hadoop.hbase.filter.CompareFilter;
 import org.apache.hadoop.hbase.filter.Filter;
@@ -24,8 +28,10 @@ public class RowFilterTest {
 
     public void rowfilter(String tablename, String rowkeyvalue) {
 
-        Configuration configuration = null;
-        configuration = new ConnectDB().getConf();
+        Configuration conf = HBaseConfiguration.create();
+        conf.set("hbase.zookeeper.quorum","192.168.31.63,192.168.31.61,192.168.31.62");
+        conf.set("hbase.zookeeper.property.clientPort","2181");
+        conf.set("zookeeper.znode.parent", "/hbase-unsecure");
 
         try {
             HTable table = new HTable(conf, tablename);
