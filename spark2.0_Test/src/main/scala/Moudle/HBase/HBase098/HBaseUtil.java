@@ -15,7 +15,9 @@ public class HBaseUtil {
     // 初始化连接
     static {
         conf = HBaseConfiguration.create(); // 获得配制文件对象
-        conf.set("hbase.zookeeper.quorum", "192.168.52.140");
+        conf.set("hbase.zookeeper.quorum","192.168.31.63,192.168.31.61,192.168.31.62");
+        conf.set("hbase.zookeeper.property.clientPort","2181");
+        conf.set("zookeeper.znode.parent", "/hbase-unsecure");
         try {
             con = ConnectionFactory.createConnection(conf);// 获得连接对象
         } catch (IOException e) {

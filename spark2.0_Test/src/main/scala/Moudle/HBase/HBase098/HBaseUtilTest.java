@@ -28,12 +28,8 @@ public class HBaseUtilTest {
     @Test
     public void testInsert(){
         //插入数据
-        HBaseUtil.insert("myTest", "1", "myfc1", "sex", "men");
-        HBaseUtil.insert("myTest", "1", "myfc1", "name", "xiaoming");
-        HBaseUtil.insert("myTest", "1", "myfc1", "age", "32");
-        HBaseUtil.insert("myTest", "1", "myfc2", "name", "xiaohong");
-        HBaseUtil.insert("myTest", "1", "myfc2", "sex", "woman");
-        HBaseUtil.insert("myTest", "1", "myfc2", "age", "23");
+        HBaseUtil.insert("user", "id100", "basic", "age", "20");
+        HBaseUtil.insert("user", "id100", "basic", "name", "cong");
     }
 
     @Test
