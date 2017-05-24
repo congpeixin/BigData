@@ -289,6 +289,11 @@
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
             </dependency>
+            <dependency>
+                <groupId>com.sksamuel.kafka.embedded</groupId>
+                <artifactId>embedded-kafka_2.11</artifactId>
+                <version>0.20.0</version>
+            </dependency>
 
         </dependencies>
     <build>

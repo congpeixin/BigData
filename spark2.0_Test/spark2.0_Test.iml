@@ -255,5 +255,10 @@
     <orderEntry type="library" name="Maven: org.joda:joda-convert:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:casbah-query_2.10:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sksamuel.kafka.embedded:embedded-kafka_2.11:0.20.0" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.scala-logging:scala-logging-slf4j_2.11:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe.scala-logging:scala-logging-api_2.11:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sksamuel.scalax:scalax_2.11:0.16.0" level="project" />
   </component>
 </module>
