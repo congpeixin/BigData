@@ -10,7 +10,7 @@ import org.apache.spark.sql.SparkSession
 object DataSetsops {
   val log = Logger.getLogger(DataSetsops.getClass)
   Logger.getLogger("org").setLevel(Level.ERROR)
-  case class Person(name:String,age:Long)
+  case class Person(name: String,age: Long)
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder()
@@ -21,7 +21,6 @@ object DataSetsops {
     import org.apache.spark.sql.functions._
     import spark.implicits._
     val personDF= spark.read.json("D:\\people.json")
-
     personDF.show()
     println("=======================personDF.show()============================")
     //    +----+-------+
