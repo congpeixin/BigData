@@ -1,4 +1,4 @@
-package Moudle.Spark20.DataSet
+package Moudle.Spark2.DataSet
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession

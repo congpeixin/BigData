@@ -1,4 +1,4 @@
-package Moudle.Spark20.sparkSQL
+package Moudle.Spark2.sparkSQL
 
 import org.apache.spark.sql.SparkSession
 

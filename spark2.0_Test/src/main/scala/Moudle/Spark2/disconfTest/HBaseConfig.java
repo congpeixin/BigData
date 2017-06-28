@@ -1,4 +1,4 @@
-package Moudle.Spark20.disconfTest;
+package Moudle.Spark2.disconfTest;
 
 import com.baidu.disconf.client.common.annotations.DisconfFile;
 import com.baidu.disconf.client.common.annotations.DisconfFileItem;

@@ -1,4 +1,4 @@
-package Moudle.Spark20.DataSet
+package Moudle.Spark2.DataSet
 
 /**
   * Created by cluster on 2017/3/15.

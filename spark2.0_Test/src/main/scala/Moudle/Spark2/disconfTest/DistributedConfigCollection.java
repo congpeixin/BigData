@@ -1,4 +1,4 @@
-package Moudle.Spark20.disconfTest;
+package Moudle.Spark2.disconfTest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

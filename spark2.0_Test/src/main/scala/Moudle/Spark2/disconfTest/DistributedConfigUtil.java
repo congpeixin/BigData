@@ -1,4 +1,4 @@
-package Moudle.Spark20.disconfTest;
+package Moudle.Spark2.disconfTest;
 
 import com.baidu.disconf.client.utils.SpringContextUtil;
 import org.apache.log4j.Logger;
