@@ -1,14 +1,15 @@
 package com.cong.sparkSQL
 
-import org.apache.spark.sql.SQLContext
-import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.sql.{Row, SQLContext, SparkSession}
+import org.apache.spark.{SparkConf, SparkContext}
+
 
 case class Student(id:Int, name:String, age:Int)
-
 /**
   * Created by root on 2016/7/1.
   */
 object RDD2DataFrameReflection {
+
 
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("RDD2DataFrameReflection").setMaster("local")
@@ -16,20 +17,37 @@ object RDD2DataFrameReflection {
     val sqlContext = new SQLContext(sc)
     // 在Scala中使用反射方式进行RDD到DataFrame的转换,需要手动导入一个隐式转换
     import sqlContext.implicits._
-    //利用反射的方式 将 RDD[String] --> RDD[Student]
-    val students = sc.textFile("data/student.txt")
-        .map(line => line.split(","))
-          .map(array => Student(array(0).trim.toInt,array(1),array(2).trim.toInt))
-    //获取RDD中的对象或者属性
-    students.foreach(println(_))//打印对象
-    students.foreach(student =>println(student.id,student.name,student.age))//打印属性
 
 
+    //======创建RDD[String]======
+    val studentStringRDD = sc.textFile("data/student.txt")
 
-    // 直接使用RDD的toDF()方法即可转换为DataFrame
-    val studentDF = students.toDF()
+    //======利用反射的方式 将 RDD[String] --> RDD[Student]======
+    val studentRDD = studentStringRDD.map(line => line.split(","))
+      .map(array => Student(array(0).trim.toInt,array(1),array(2).trim.toInt))
+//    获取RDD[Student]中的对象或者属性
+//    studentRDD.foreach(println(_))//打印对象
+//    studentRDD.foreach(student =>println(student.id,student.name,student.age))//打印属性
+
+    //====== RDD[Student] --> RDD[Row]======
+    val studentRowRDD = studentRDD.map(student => Row(student.id,student.name,student.age))
+//    studentRowRDD.foreach(println(_))
+    //打印属性  注意，Row类型数据，获取属性是通过Row下标来获取的，下标值从0开始
+//    studentRowRDD.foreach(student =>println(student.get(0),student.get(1),student.get(2)))
+
+    //====== RDD[Row] --> JavaRDD[Row]======
+    val studentJavaRowRDD = studentRowRDD.toJavaRDD()
+
+
+    //=====RDD 转换 DF : 此种转换是 利用 case class的RDD[Student] --（直接 .toDF()）--> DF
+      val studentDF = studentRDD.toDF()
+      studentDF.show()
+
+
+    //    studentDF.foreach(student => println(student.getAs[Long]("id"),student.getAs[String]("name"),student.getAs[Long]("age")))
+
     // 利用createDF方法创建
-    val studentDF1 = sqlContext.createDataFrame()
+//    val studentDF1 = sqlContext.createDataFrame(students,Student)
 
 //    studentDF.registerTempTable("students")
 //    val teenagerDF = sqlContext.sql("select * from students where age <= 18")
