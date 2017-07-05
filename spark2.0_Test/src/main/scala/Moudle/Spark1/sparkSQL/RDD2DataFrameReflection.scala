@@ -1,6 +1,7 @@
 package Moudle.Spark1.sparkSQL
 
-import org.apache.spark.sql.{SQLContext, Row, SparkSession}
+import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
+import org.apache.spark.sql.{Row, SQLContext, SparkSession}
 import org.apache.spark.{SparkConf, SparkContext}
 
 
@@ -50,36 +51,26 @@ object RDD2DataFrameReflection {
 
 
     //=====RDD 转换 DF : 此种转换是 利用 case class的RDD[Student] --（直接 .toDF()）--> DF
-
     val studentDF = studentRDD.toDF() //本机环境是spark 2.0，用的api都是spark2.0的，所以要创建sparksession的代码。
     //打印里面的数据
     //    studentDF.show()
     //    studentDF.foreach(student => println(student.getAs[Long]("id"),student.getAs[String]("name"),student.getAs[Long]("age")))
 
-
-
-    //=======利用createDF方法创建 createDataFrame(RDD[Person])
+    //=====RDD 转换 DF :  createDataFrame(RDD[Person])
     val studentDF1 = spark.sqlContext.createDataFrame(studentRDD)
-    studentDF1.show()
+//    studentDF1.show()
 
+    //=====RDD 转换 DF :  利用schema structure创建DataFrame,createDataFrame(RDD[Row])
+    val schema = StructType(
+      Seq(StructField("id",IntegerType,true),StructField("name",StringType,true),StructField("age",IntegerType,true)
+      )
+    )
+    val studentDF2 = spark.createDataFrame(studentRowRDD,schema)
+//    studentDF2.show()
 
+    studentDF.registerTempTable("students")
+    val ageDF = sqlContext.sql("select * from students where age > 18")
+    ageDF.foreach(person => println(person.getAs[String]("name")))
 
-
-    //    studentDF.registerTempTable("students")
-    //    val teenagerDF = sqlContext.sql("select * from students where age <= 18")
-    //    val teenagerRDD = teenagerDF.rdd
-    //
-    //    // 这个scala版本比java的版本呢要亲和一点,没有像JAVA一样按照字典排序,而是保证了我们的这个顺序！
-    //    teenagerDF.map(row => Student(row(0).toString.toInt, row(1).toString, row(2).toString.toInt))
-    //      .collect().foreach(stu => println(stu.id + ":" + stu.name + ":" + stu.age))
-    //
-    //    // 首先scala中保证了顺序的一致,见上面,其次scala中对这个row的使用,比java的row使用更丰富
-    //    teenagerRDD.map(row => Student(row.getAs[Int]("id"), row.getAs[String]("name"), row.getAs[Int]("age")))
-    //      .collect().foreach(stu => println(stu.id + ":" + stu.name + ":" + stu.age))
-    //
-    //    teenagerRDD.map(row => {
-    //      val map = row.getValuesMap[Any](Array("id","name","age"))
-    //      Student(map("id").toString.toInt, map("name").toString, map("age").toString.toInt)
-    //    }).collect().foreach(stu => println(stu.id + ":" + stu.name + ":" + stu.age))
   }
 }
