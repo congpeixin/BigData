@@ -225,35 +225,40 @@
                 <artifactId>spark-sql_2.11</artifactId>
                 <version>2.0.0</version>
             </dependency>
-            <!--<dependency>-->
-            <!--<groupId>org.apache.spark</groupId>-->
-            <!--<artifactId>spark-streaming_2.11</artifactId>-->
-            <!--<version>2.0.0</version>-->
-            <!--</dependency>-->
+            <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+            <version>2.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-streaming_2.11</artifactId>
+                <version>2.0.0</version>
+            </dependency>
             <!--<dependency>-->
                 <!--<groupId>org.apache.kafka</groupId>-->
                 <!--<artifactId>kafka-clients</artifactId>-->
                 <!--<version>0.10.2.0</version>-->
             <!--</dependency>-->
-            <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka_2.11</artifactId>
-                <version>0.10.1.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.zookeeper</groupId>
-                        <artifactId>zookeeper</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-log4j12</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.kafka</groupId>-->
+                <!--<artifactId>kafka_2.11</artifactId>-->
+                <!--<version>0.10.1.0</version>-->
+                <!--<exclusions>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>org.apache.zookeeper</groupId>-->
+                        <!--<artifactId>zookeeper</artifactId>-->
+                    <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>log4j</groupId>-->
+                        <!--<artifactId>log4j</artifactId>-->
+                    <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>org.slf4j</groupId>-->
+                        <!--<artifactId>slf4j-log4j12</artifactId>-->
+                    <!--</exclusion>-->
+                <!--</exclusions>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>

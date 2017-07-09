@@ -20,11 +20,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.sksamuel.kafka.embedded:embedded-kafka_2.11:0.20.0" level="project" />
-    <orderEntry type="library" name="Maven: com.typesafe.scala-logging:scala-logging-slf4j_2.11:2.1.2" level="project" />
-    <orderEntry type="library" name="Maven: com.typesafe.scala-logging:scala-logging-api_2.11:2.1.2" level="project" />
-    <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
-    <orderEntry type="library" name="Maven: com.sksamuel.scalax:scalax_2.11:0.16.0" level="project" />
     <orderEntry type="library" name="scala-sdk-2.11.81" level="application" />
     <orderEntry type="module" module-name="BigData" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
@@ -99,7 +94,7 @@
     <orderEntry type="module-library">
       <library name="Maven: jdk.tools:jdk.tools:1.7">
         <CLASSES>
-          <root url="jar://C:/Program Files (x86)/Java/jdk1.8.0_111/lib/tools.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_77/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -244,10 +239,11 @@
     <orderEntry type="library" name="Maven: org.apache.parquet:parquet-hadoop:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.parquet:parquet-format:2.3.0-incubating" level="project" />
     <orderEntry type="library" name="Maven: org.apache.parquet:parquet-jackson:1.7.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.kafka:kafka_2.11:0.10.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.10.1.0" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.jopt-simple:jopt-simple:4.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-streaming-kafka-0-10_2.11:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka_2.11:0.10.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.10.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-streaming_2.11:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.38" level="project" />
     <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5.2" level="project" />
