@@ -30,7 +30,7 @@ object RDD2DataFrameReflection {
     import sqlContext.implicits._
 
 
-    //======创建RDD[String]======
+    //======创建RDD[String]====== data：1,cong,22
     val studentStringRDD = sc.textFile("data/student.txt")
 
     //======利用反射的方式 将 RDD[String] --> RDD[Student]======
@@ -56,7 +56,7 @@ object RDD2DataFrameReflection {
     //    studentDF.show()
     //    studentDF.foreach(student => println(student.getAs[Long]("id"),student.getAs[String]("name"),student.getAs[Long]("age")))
 
-    //=====RDD 转换 DF :  createDataFrame(RDD[Person])
+    //=====RDD 转换 DF :  createDataFrame(RDD[Student])
     val studentDF1 = spark.sqlContext.createDataFrame(studentRDD)
 //    studentDF1.show()
 
