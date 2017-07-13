@@ -32,7 +32,6 @@ object StructuredStreamingKafka {
       .outputMode("append")
       .format("console")
       .start()
-
     query.awaitTermination()
   }
 }

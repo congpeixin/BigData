@@ -1,4 +1,4 @@
-package Moudle.Spark2.scala
+package Moudle.scala
 
 /**
   * Created by cluster on 2017/3/14.

@@ -1,4 +1,4 @@
-package Moudle.Spark2.scala
+package Moudle.scala
 
 import com.google.gson.Gson
 import org.apache.log4j.{Level, Logger}

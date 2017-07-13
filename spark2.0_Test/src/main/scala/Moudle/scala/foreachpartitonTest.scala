@@ -1,4 +1,4 @@
-package Moudle.Spark2.scala
+package Moudle.scala
 
 import java.sql.{Connection, DriverManager, PreparedStatement}
 
