@@ -1,4 +1,4 @@
-package Moudle.Spark2.scala
+package Moudle.scala
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession

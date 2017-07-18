@@ -2,18 +2,20 @@ package Moudle.Spark2.streaming
 // scalastyle:off println
 import org.apache.spark.sql.SparkSession
 
-object StructuredNetworkWordCount {
+object StreamingSocket {
   def main(args: Array[String]) {
-    if (args.length < 2) {
-      System.err.println("Usage: StructuredNetworkWordCount <hostname> <port>")
-      System.exit(1)
-    }
-
-    val host = args(0)
-    val port = args(1).toInt
+//    if (args.length < 2) {
+//      System.err.println("Usage: StructuredNetworkWordCount <hostname> <port>")
+//      System.exit(1)
+//    }
+    val warehouseLocation = "/spark-warehouse"
+    val host = "192.168.31.105"
+    val port = "9999"
 
     val spark = SparkSession
       .builder
+      .master("local[2]")
+      .config("spark.sql.warehouse.dir", warehouseLocation)
       .appName("StructuredNetworkWordCount")
       .getOrCreate()
 
