@@ -39,6 +39,9 @@ object UserBehaviorsAnalysis {
     data.filter($"name".equalTo("Ben")).select("name","favorite_color").show()
     //spark1.6中filter的写法
     data.filter(data("name").equalTo("Ben")).select("name","favorite_color").show()
+    //另一种写法
+    data.filter("name =="+"'Ben'").show()
+
 
   }
 }
