@@ -1,4 +1,5 @@
-{"userID":"userID1234","Name":"zhangsan","Gender":"man","Occupation":"student"}
-{"userID":"userID2234","Name":"lisi","Gender":"woman","Occupation":"teacher"}
-{"userID":"userID3234","Name":"wangwu","Gender":"man","Occupation":"student"}
-{"userID":"userID3234","Name":"wangwu","Gender":"man","Occupation":"student"}
+{"userID":"userID1234","Name":"zhangsan","Gender":"man","Occupation":"student","registeredTime":"2016-07-25 02:00:00"}
+{"userID":"userID2234","Name":"lisi","Gender":"woman","Occupation":"teacher","registeredTime":"2016-10-02 02:00:00"}
+{"userID":"userID3234","Name":"wangwu","Gender":"man","Occupation":"student","registeredTime":"2016-10-01 02:00:00"}
+{"userID":"userID4234","Name":"huyuting","Gender":"woman","Occupation":"student","registeredTime":"2016-08-25 02:00:00"}
+{"userID":"userID5234","Name":"congpeixin","Gender":"man","Occupation":"adlut","registeredTime":"2016-09-25 02:00:00"}
