@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-init-method="init"
+       default-destroy-method="destroy">
+
+    <context:component-scan base-package="com.spark2Test.study"/>
+    <context:component-scan base-package="com.baidu"/>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 使用disconf必须添加以下配置 -->
+    <!--<bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean"-->
+          <!--destroy-method="destroy">-->
+        <!--<property name="scanPackage" value="com.spark2Test.study"/>-->
+    <!--</bean>-->
+    <!--<bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond"-->
+          <!--init-method="init" destroy-method="destroy">-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 使用托管方式的disconf配置(无代码侵入, 配置更改会自动reload)&ndash;&gt;-->
+    <!--<bean id="configproperties_disconf"-->
+          <!--class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;<value>classpath:/etlfieldrules.xml</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>classpath:/hbase_skudata_schema.xml</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>classpath:/datafilter.xml</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>classpath:/kafka.properties</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>classpath:/hbase.properties</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;classpath:/&ndash;&gt;-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="propertyConfigurer"-->
+          <!--class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer">-->
+        <!--<property name="ignoreResourceNotFound" value="true"/>-->
+        <!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
+        <!--<property name="propertiesArray">-->
+            <!--<list>-->
+                <!--<ref bean="configproperties_disconf"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload)&ndash;&gt;-->
+    <!--<bean id="configproperties_no_reloadable_disconf"-->
+          <!--class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="propertyConfigurerForProject1"-->
+          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="ignoreResourceNotFound" value="true"/>-->
+        <!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
+        <!--<property name="propertiesArray">-->
+            <!--<list>-->
+                <!--<ref bean="configproperties_no_reloadable_disconf"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="helloWorld" class="com.Spring.HelloWorld">
+        <property name="message1" value="Hello World--1!"/>
+        <property name="message2" value="Hello World--2"/>
+    </bean>
+
+    <bean id="helloWorld1" class="com.Spring.HelloWorld_1" parent="helloWorld">
+        <property name="message1" value="Hello World---1!"/>
+        <property name="message3" value="Hello World--3"/>
+    </bean>
+
+
+
+    <bean id="dataSource"
+                 class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://192.168.31.7:3306/cpeixinTest"/>
+    <property name="username" value="root"/>
+    <property name="password" value="dp12345678"/>
+    </bean>
+
+    <bean id="studentJDBCTemplate"
+          class="com.Spring.springJDBC.StudentJDBCTemplate">
+        <property name="dataSource"  ref="dataSource" />
+    </bean>
+</beans>
