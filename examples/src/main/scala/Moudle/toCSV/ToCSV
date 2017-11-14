@@ -1,0 +1,24 @@
+1.python实现：
+  背景：将计算之后的df结果写入csv文件中
+  实现：
+  import csv
+
+  df = .... #dataframe
+  with open("/dir/dir/test.csv","w") as csvfile:  # "w"分隔符
+      writer = csv.writer(csvfile)
+      #先写入columns_name
+      writer.writerow(["index","a_name","b_name"])
+      #写入多行用writerows
+      writer.writerows([[0,1,3],[1,2,3],[2,3,4]]) //list类型数据 writerows要传入 Iterator类型数据
+      writer.writerows(df.collect()) //df.collect可返回数组类型
+
+
+
+2.scala实现：
+<dependency>
+	<groupId>com.databricks</groupId>
+	<artifactId>spark-csv_2.10</artifactId>
+	<version>1.0.3</version>
+</dependency>
+
+https://github.com/databricks/spark-csv
